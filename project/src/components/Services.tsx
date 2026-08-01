@@ -1,4 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { FiCheckCircle, FiCode, FiEdit3, FiGlobe, FiMail, FiPenTool, FiSearch, FiShare2, FiShoppingBag } from 'react-icons/fi';
 import { services } from '@/data/content';
 import { iconMap } from '@/components/Icon';
 import { useScrollReveal } from '@/hooks/useScroll';
@@ -6,47 +8,47 @@ import { useScrollReveal } from '@/hooks/useScroll';
 const contentServices = [
   {
     title: 'SEO Content Writing',
-    icon: 'Search',
+    icon: <FiSearch size={20} />,
     desc: 'Create search-optimized pages and articles that rank for target keywords and attract qualified traffic.',
   },
   {
     title: 'Blog & Article Writing',
-    icon: 'PenLine',
+    icon: <FiEdit3 size={20} />,
     desc: 'Write engaging blog posts and long-form articles that build your authority and keep readers coming back.',
   },
   {
     title: 'Website Content Writing',
-    icon: 'Globe',
+    icon: <FiGlobe size={20} />,
     desc: 'Develop clear, persuasive website copy that communicates your value and converts visitors into leads.',
   },
   {
     title: 'Copywriting',
-    icon: 'PenTool',
+    icon: <FiPenTool size={20} />,
     desc: 'Craft compelling headlines, value propositions, and sales copy that drive action and improve conversions.',
   },
   {
     title: 'Product Description Writing',
-    icon: 'ShoppingBag',
+    icon: <FiShoppingBag size={20} />,
     desc: 'Write product descriptions that explain benefits, reduce friction, and help customers make faster buying decisions.',
   },
   {
     title: 'Email Copywriting',
-    icon: 'Mail',
+    icon: <FiMail size={20} />,
     desc: 'Create email campaigns that engage subscribers, nurture leads, and get measurable clicks and responses.',
   },
   {
     title: 'Social Media Content',
-    icon: 'Share2',
+    icon: <FiShare2 size={20} />,
     desc: 'Produce social posts, captions, and campaign copy that grow your following and strengthen brand awareness.',
   },
   {
     title: 'Technical Writing',
-    icon: 'Code',
+    icon: <FiCode size={20} />,
     desc: 'Develop clear technical documentation, guides, and manuals that are easy to understand and follow.',
   },
   {
     title: 'Content Editing & Proofreading',
-    icon: 'CheckCircle',
+    icon: <FiCheckCircle size={20} />,
     desc: 'Polish your content with grammar checks, style improvements, and consistency edits for a professional finish.',
   },
 ];
@@ -114,6 +116,16 @@ const linkBuildingServices = [
   },
 ];
 
+const iconBadgeClassName = 'inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/90 text-primary-600 border border-primary-100 shadow-sm dark:bg-gray-800/80 dark:text-primary-400 dark:border-primary-900/50 mb-4 group-hover:scale-110 group-hover:shadow-md transition-all';
+
+function ServiceIconBadge({ icon }: { icon: ReactNode }) {
+  return (
+    <div className={iconBadgeClassName}>
+      {typeof icon === 'string' ? <span className="text-lg leading-none">{icon}</span> : icon}
+    </div>
+  );
+}
+
 export default function Services() {
   const { ref, visible } = useScrollReveal();
   return (
@@ -178,9 +190,7 @@ export default function Services() {
               >
                 <div className="absolute -right-8 -top-8 w-24 h-24 bg-primary-50 dark:bg-primary-950/40 rounded-full group-hover:scale-150 transition-transform duration-500" />
                 <div className="relative">
-                  <div className="inline-grid place-items-center w-12 h-12 rounded-xl bg-white border border-gray-200 shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                    {Icon ? <Icon size={20} /> : null}
-                  </div>
+                  <ServiceIconBadge icon={service.icon} />
                   <h3 className="font-heading font-bold text-lg text-dark dark:text-white mb-2">
                     {service.title}
                   </h3>
@@ -214,9 +224,7 @@ export default function Services() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/90 text-primary-600 border border-primary-100 shadow-sm dark:bg-gray-800/80 dark:text-primary-400 dark:border-primary-900/50 mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
-                  <span className="text-lg leading-none">{service.icon}</span>
-                </div>
+                <ServiceIconBadge icon={service.icon} />
                 <h3 className="font-heading font-bold text-lg text-dark dark:text-white mb-2">
                   {service.title}
                 </h3>
