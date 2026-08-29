@@ -1,172 +1,209 @@
-import { ArrowRight, BookOpen, ClipboardList, FileText, LayoutList, PenTool, Search, Sparkles, Star, Wand2 } from 'lucide-react';
-import { skills } from '@/data/content';
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpen,
+  ClipboardList,
+  FileText,
+  Gauge,
+  Globe,
+  LayoutList,
+  Link2,
+  MapPin,
+  PenTool,
+  Search,
+  Settings2,
+  ShoppingCart,
+  Sparkles,
+  Star,
+  Wand2,
+  Workflow,
+} from 'lucide-react';
+import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScroll';
 
-function CircularProgress({ name, value, visible, delay }: { name: string; value: number; visible: boolean; delay: number }) {
-  const radius = 52;
-  const circumference = 2 * Math.PI * radius;
-  const offset = visible ? circumference - (value / 100) * circumference : circumference;
+const seoTools = [
+  { title: 'SEO Strategy', icon: Gauge },
+  { title: 'Technical SEO', icon: Settings2 },
+  { title: 'Keyword Research', icon: Search },
+  { title: 'Content Optimization', icon: FileText },
+  { title: 'Link Building', icon: Link2 },
+  { title: 'WordPress SEO', icon: Globe },
+  { title: 'Analytics (GA4)', icon: BarChart3 },
+  { title: 'Local SEO', icon: MapPin },
+  { title: 'Competitive Analysis', icon: BarChart3 },
+  { title: 'E-commerce SEO', icon: ShoppingCart },
+];
 
-  return (
-    <div className="flex flex-col items-center group" style={{ transitionDelay: `${delay}s` }}>
-      <div className="relative w-32 h-32">
-        <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r={radius} fill="none" strokeWidth="10" className="stroke-gray-200 dark:stroke-gray-700" />
-          <circle
-            cx="60" cy="60" r={radius} fill="none" strokeWidth="10"
-            strokeLinecap="round"
-            stroke="url(#skillGradient)"
-            strokeDasharray={circumference}
-            strokeDashoffset={offset}
-            style={{ transition: 'stroke-dashoffset 1.6s cubic-bezier(0.4,0,0.2,1)' }}
-          />
-          <defs>
-            <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2563eb" />
-              <stop offset="100%" stopColor="#10b981" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="absolute inset-0 grid place-items-center">
-          <span className="font-heading font-bold text-xl text-dark dark:text-white">{value}%</span>
-        </div>
-      </div>
-      <p className="mt-3 text-sm font-semibold text-gray-700 dark:text-gray-200 text-center">{name}</p>
-    </div>
-  );
-}
+const contentServices = [
+  { title: 'SEO Writing', description: 'Search-first copy that ranks and converts.', icon: Search },
+  { title: 'Blog Writing', description: 'Sharp articles that attract and retain readers.', icon: BookOpen },
+  { title: 'Article Writing', description: 'Research-backed stories with clear expert value.', icon: ClipboardList },
+  { title: 'Website Content Writing', description: 'Clean messaging for trust and action.', icon: LayoutList },
+  { title: 'Research Writing', description: 'Structured, source-led content for authority.', icon: FileText },
+  { title: 'Content Strategy', description: 'Roadmaps built for reach, relevance, and ROI.', icon: Sparkles },
+  { title: 'Content Refresh & Audit', description: 'Re-optimizing legacy content for better ranking.', icon: PenTool },
+  { title: 'UX Copywriting', description: 'Crafting seamless journeys that drive conversions.', icon: Star },
+  { title: 'Data-Driven Case Studies', description: 'Showcasing real-world results that build trust.', icon: Wand2 },
+  { title: 'Email Copywriting', description: 'Persuasive sequences for lead nurture and sales.', icon: ArrowRight },
+  { title: 'Workflow Automation', description: 'Streamlined content production and management.', icon: Workflow },
+];
+
+const skillTabs = {
+  'SEO Strategy': [
+    { title: 'SEO Strategy', description: 'Intent-driven growth plans built around rankings and revenue.', icon: Gauge },
+    { title: 'Keyword Research', description: 'High-opportunity terms mapped to business goals and search intent.', icon: Search },
+    { title: 'Content Optimization', description: 'On-page improvements that sharpen relevance and conversion lift.', icon: FileText },
+    { title: 'Link Building', description: 'Authoritative backlinks that support sustainable organic growth.', icon: Link2 },
+    { title: 'Competitive Analysis', description: 'Gap analysis for stronger ranking strategy and market position.', icon: BarChart3 },
+    { title: 'Analytics (GA4)', description: 'Performance tracking to connect search gains with business outcomes.', icon: BarChart3 },
+  ],
+  'Technical SEO': [
+    { title: 'Technical SEO', description: 'Clean crawlability, site structure, and indexation health.', icon: Settings2 },
+    { title: 'WordPress SEO', description: 'Fast, scalable optimization for WordPress growth and speed.', icon: Globe },
+    { title: 'Local SEO', description: 'Geo-targeted visibility that drives more qualified local leads.', icon: MapPin },
+    { title: 'E-commerce SEO', description: 'Product and category optimization for more qualified traffic.', icon: ShoppingCart },
+    { title: 'Technical Audits', description: 'Issue detection and correction across crawl, index, and performance gaps.', icon: FileText },
+    { title: 'Performance Tracking', description: 'Monitoring the technical fixes that impact rankings and UX.', icon: Sparkles },
+  ],
+  'Content Writing': [
+    { title: 'SEO Writing', description: 'Search-first copy that ranks and converts.', icon: Search },
+    { title: 'Blog Writing', description: 'Sharp articles that attract and retain readers.', icon: BookOpen },
+    { title: 'Article Writing', description: 'Research-backed stories with clear expert value.', icon: ClipboardList },
+    { title: 'Website Content Writing', description: 'Clean messaging for trust and action.', icon: LayoutList },
+    { title: 'Research Writing', description: 'Structured, source-led content for authority.', icon: FileText },
+    { title: 'Content Strategy', description: 'Roadmaps built for reach, relevance, and ROI.', icon: Sparkles },
+  ],
+} as const;
 
 export default function Skills() {
   const { ref, visible } = useScrollReveal();
+  const [activeTab, setActiveTab] = useState<keyof typeof skillTabs>('SEO Strategy');
+  const activeSkillCards = skillTabs[activeTab];
+
   return (
     <section id="skills" className="section-pad">
       <div ref={ref} className="container-px">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="section-subtitle mb-3">My Expertise</p>
-          <h2 className="section-title">SEO <span className="gradient-text">Skills</span></h2>
+          <h2 className="section-title">
+            SEO <span className="text-blue-600">Expertise</span> &amp; <span className="text-teal-600">Core Tools</span>
+          </h2>
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            A deep toolkit honed across hundreds of audits and ranking campaigns.
+            A data-driven toolkit honed through extensive audits and conversion-focused campaigns.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
-          {skills.map((skill, i) => (
-            <CircularProgress key={skill.name} name={skill.name} value={skill.value} visible={visible} delay={i * 0.08} />
+
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+          {(Object.keys(skillTabs) as Array<keyof typeof skillTabs>).map((tab) => (
+            <button
+              key={tab}
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                activeTab === tab
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20'
+                  : 'border border-slate-200 bg-white text-slate-600 hover:border-sky-200 hover:text-sky-700'
+              }`}
+            >
+              {tab}
+            </button>
           ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {activeSkillCards.map((tool, index) => {
+            const Icon = tool.icon;
+
+            return (
+              <div
+                key={`${activeTab}-${tool.title}`}
+                className="group rounded-[24px] border border-slate-200/80 bg-white p-5 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.22)] transition duration-300 hover:-translate-y-1 hover:border-sky-300/70 hover:shadow-[0_25px_50px_-24px_rgba(14,116,144,0.25)]"
+                style={{ transitionDelay: `${index * 0.03}s` }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-700 shadow-inner shadow-slate-200 transition group-hover:bg-sky-50 group-hover:text-sky-700">
+                  <Icon size={22} />
+                </div>
+                <p className="mt-4 text-sm font-semibold text-slate-800">{tool.title}</p>
+              </div>
+            );
+          })}
         </div>
 
         <section className="mt-16 overflow-hidden rounded-[36px] border border-slate-200/70 bg-white shadow-[0_35px_80px_-40px_rgba(15,23,42,0.15)]">
           <div className="rounded-[34px] bg-white p-8 sm:p-10 lg:p-12">
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-              <div className="space-y-6 text-center">
-                <div className="inline-flex items-center rounded-full bg-blue-50 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 shadow-sm">
-                  Premium Content Writing
-                </div>
-                <div className="space-y-4">
-                  <p className="section-subtitle mb-0 text-slate-500">Content Writing Skills</p>
-                  <h3 className="mx-auto max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-                    Writing services built to convert visitors into clients.
-                  </h3>
-                  <p className="mx-auto max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-                    High-impact writing for SEO pages, blogs, landing pages, and product descriptions with clear messaging, brand-ready tone, and conversion focus.
-                  </p>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Conversion</p>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">Copy that motivates action and builds trust fast.</p>
+            <div className="flex items-start gap-10 lg:gap-10">
+              <div className="w-full lg:w-[38%] lg:sticky lg:top-[120px] lg:self-start">
+                <div className="space-y-6 text-center lg:text-left">
+                  <div className="inline-flex items-center rounded-full bg-blue-50 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-blue-700 shadow-sm">
+                    PREMIUM CONTENT SERVICES
                   </div>
-                  <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Clarity</p>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">Clear messaging that removes friction and boosts confidence.</p>
+                  <div className="space-y-4">
+                    <h2 className="mx-auto max-w-[520px] text-[2.25rem] font-[800] leading-[1.25] text-slate-900 lg:mx-0">
+                      Writing That Converts <span className="text-blue-600">Visitors Into Clients.</span>
+                    </h2>
+                    <p className="mx-auto max-w-[420px] text-sm leading-7 text-slate-600 lg:mx-0">
+                      High-impact writing for SEO pages, blogs, landing pages, and product descriptions with clear messaging, brand-ready tone, and conversion focus.
+                    </p>
                   </div>
-                </div>
-                <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:items-center">
-                  <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/10 transition hover:scale-[1.02]">
-                    Hire me for content writing
-                  </a>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" /> Fast delivery, polished results
-                  </span>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                      <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Conversion</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-600">Copy that motivates action and builds trust fast.</p>
+                    </div>
+                    <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                      <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Clarity</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-600">Clear messaging that removes friction and boosts confidence.</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                    <a
+                      href="#contact"
+                      className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_12px_25px_-5px_rgba(37,99,235,0.45)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_25px_-5px_rgba(37,99,235,0.45)] active:translate-y-0 active:scale-[0.98]"
+                      style={{ borderRadius: '9999px', whiteSpace: 'nowrap', textTransform: 'capitalize' }}
+                    >
+                      <span className="relative z-10">Book Writing Service</span>
+                      <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.25)_25%,rgba(255,255,255,0.08)_50%,transparent_75%)] transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                    </a>
+                    <span className="group inline-flex items-center gap-2 rounded-full border border-blue-200 bg-[#eff6ff] px-6 py-3 text-sm font-medium text-blue-700 transition-all duration-300 ease-out hover:bg-[#dbeafe]" style={{ borderRadius: '9999px', whiteSpace: 'nowrap', textTransform: 'capitalize' }}>
+                      <span className="h-2.5 w-2.5 rounded-full bg-teal-500 shadow-[0_0_0_4px_rgba(45,212,191,0.12)] animate-pulse" />
+                      <span className="transition-colors duration-300 ease-out group-hover:text-teal-600">⚡ Fast Turnaround &amp; Polished Quality</span>
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    title: 'SEO Writing',
-                    description: 'Optimized content that ranks higher on search engines.',
-                    icon: Search,
-                  },
-                  {
-                    title: 'Blog Writing',
-                    description: 'Engaging articles that attract and retain readers.',
-                    icon: BookOpen,
-                  },
-                  {
-                    title: 'Article Writing',
-                    description: 'Well-researched, informative, and original articles.',
-                    icon: ClipboardList,
-                  },
-                  {
-                    title: 'Website Content Writing',
-                    description: 'Clear, persuasive content for business websites.',
-                    icon: LayoutList,
-                  },
-                  {
-                    title: 'Research Writing',
-                    description: 'Accurate, detailed, and data-driven writing.',
-                    icon: FileText,
-                  },
-                  {
-                    title: 'Content Strategy',
-                    description: 'Content planning focused on business growth.',
-                    icon: Sparkles,
-                  },
-                  {
-                    title: 'Editing & Proofreading',
-                    description: 'Polished, error-free, professional content.',
-                    icon: PenTool,
-                  },
-                  {
-                    title: 'Storytelling',
-                    description: 'Compelling writing that connects with readers.',
-                    icon: Star,
-                  },
-                  {
-                    title: 'AI Content Optimization',
-                    description: 'Humanized AI content optimized for SEO.',
-                    icon: Wand2,
-                  },
-                  {
-                    title: 'Copywriting',
-                    description: 'High-converting copy that drives more sales.',
-                    icon: ArrowRight,
-                  },
-                ].map((item, index) => {
+              <div className="grid w-full flex-1 grid-cols-1 gap-5 sm:grid-cols-2 lg:min-h-[580px]">
+                {contentServices.map((item, index) => {
                   const Icon = item.icon;
+
                   return (
                     <div
                       key={item.title}
-                      className="group relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-6 text-slate-900 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300/50 hover:shadow-[0_18px_45px_-25px_rgba(56,189,248,0.45)]"
+                      className="group relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_10px_25px_rgba(0,0,0,0.05)]"
                       style={{ transitionDelay: `${index * 0.03}s` }}
                     >
-                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-400 to-cyan-300 opacity-0 transition duration-300 group-hover:opacity-100" />
-                      <div className="relative flex items-start gap-4">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-100 via-sky-50 to-cyan-100 text-sky-700 shadow-sm">
-                          <Icon size={24} />
+                      <div className="relative flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-700">
+                          <Icon size={19} />
                         </div>
-                        <div className="flex-1">
-                          <p className="text-lg font-semibold text-slate-900">{item.title}</p>
-                          <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-[1.05rem] font-bold leading-snug text-slate-900">{item.title}</p>
                         </div>
                       </div>
-                      <div className="absolute bottom-5 right-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                      <p className="mt-3 text-sm leading-5 text-slate-600 font-normal">{item.description}</p>
+                      <div className="absolute bottom-4 right-4 opacity-0 transition duration-300 group-hover:opacity-100">
                         <ArrowRight size={18} className="text-sky-500" />
                       </div>
                     </div>
                   );
                 })}
               </div>
+            </div>
+
+            <div className="mt-8 border-t border-slate-200/80 pt-5 text-center">
+              <p className="text-sm text-slate-600">
+                Curious about my process? <a href="#contact" className="font-semibold text-sky-700 transition hover:text-sky-600">Let’s connect.</a>
+              </p>
             </div>
           </div>
         </section>

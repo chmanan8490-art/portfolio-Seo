@@ -56,7 +56,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-pad bg-lightgray dark:bg-gray-900/30">
+    <section id="contact" className="section-pad bg-slate-50 text-slate-900">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="section-subtitle mb-3">Let's Talk</p>

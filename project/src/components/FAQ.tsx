@@ -8,7 +8,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="section-pad bg-lightgray dark:bg-gray-900/30">
+    <section className="section-pad bg-slate-50 text-slate-900">
       <div ref={ref} className={`container-px max-w-3xl mx-auto reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center mb-10">
           <p className="section-subtitle mb-3">Got Questions?</p>
