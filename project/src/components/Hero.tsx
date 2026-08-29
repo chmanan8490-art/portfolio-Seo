@@ -42,7 +42,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative pt-28 lg:pt-36 pb-20 overflow-hidden grid-bg">
+    <section id="home" className="relative pt-28 lg:pt-36 pb-20 overflow-hidden bg-slate-950 grid-bg">
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl" />
       <div className="absolute top-40 -left-32 w-80 h-80 bg-secondary-500/20 rounded-full blur-3xl" />
 
@@ -56,17 +56,17 @@ export default function Hero() {
             Available for SEO Projects
           </span>
 
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-dark dark:text-white">
+          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-white">
             Rank Higher. Grow Faster.{' '}
             <span className="block gradient-text mt-2">Get More {typed}<span className="typing-cursor h-12 lg:h-14 ml-1" /></span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 max-w-xl leading-relaxed">
             I help businesses increase their Google rankings, drive organic traffic, and generate
             more leads through data-driven SEO strategies.
           </p>
 
-          <p className="mt-4 text-base text-gray-500 dark:text-gray-400 max-w-xl">
+          <p className="mt-4 text-base text-slate-400 max-w-xl">
             Specialized in Technical SEO, On-Page SEO, Keyword Research, SEO Audits, and Content Optimization.
           </p>
 
@@ -79,14 +79,14 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="mt-10 flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
+          <div className="mt-10 flex items-center gap-8 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <TrendingUp size={18} className="text-secondary-500" />
-              <span><strong className="text-dark dark:text-white">+300%</strong> Avg. Traffic Growth</span>
+              <span><strong className="text-white">+300%</strong> Avg. Traffic Growth</span>
             </div>
             <div className="flex items-center gap-2">
               <Search size={18} className="text-primary-500" />
-              <span><strong className="text-dark dark:text-white">200+</strong> Audits Done</span>
+              <span><strong className="text-white">200+</strong> Audits Done</span>
             </div>
           </div>
         </div>
@@ -106,10 +106,10 @@ function HeroDashboard() {
       <div className="relative card p-6 lg:p-8 backdrop-blur">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">SEO Dashboard</p>
-            <h3 className="font-heading font-bold text-xl text-dark dark:text-white">Performance Overview</h3>
+            <p className="text-sm text-slate-400">SEO Dashboard</p>
+            <h3 className="font-heading font-bold text-xl text-white">Performance Overview</h3>
           </div>
-          <span className="px-3 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900/40 text-secondary-700 dark:text-secondary-300 text-xs font-semibold">
+          <span className="px-3 py-1 rounded-full bg-secondary-100/10 text-secondary-300 border border-secondary-500/20 text-xs font-semibold">
             Live
           </span>
         </div>
@@ -121,8 +121,8 @@ function HeroDashboard() {
           <MiniStat icon={<Globe size={20} />} label="Indexed Pages" value="342" trend="+12%" color="secondary" />
         </div>
 
-        <div className="rounded-xl bg-gray-50 dark:bg-gray-900/60 p-4">
-          <p className="text-sm font-semibold text-dark dark:text-white mb-3">Ranking Growth (6 months)</p>
+        <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-4">
+          <p className="text-sm font-semibold text-white mb-3">Ranking Growth (6 months)</p>
           <div className="flex items-end gap-2 h-32">
             {[35, 48, 42, 60, 72, 88, 95].map((h, i) => (
               <div key={i} className="flex-1 flex flex-col items-center gap-1">
@@ -130,7 +130,7 @@ function HeroDashboard() {
                   className="w-full rounded-t-md bg-gradient-to-t from-primary-600 to-secondary-500 transition-all duration-700"
                   style={{ height: `${h}%`, animationDelay: `${i * 0.1}s` }}
                 />
-                <span className="text-[10px] text-gray-400">M{i + 1}</span>
+                <span className="text-[10px] text-slate-500">M{i + 1}</span>
               </div>
             ))}
           </div>
@@ -139,13 +139,13 @@ function HeroDashboard() {
         <div className="absolute -top-6 -right-6 animate-float">
           <div className="card px-4 py-3 flex items-center gap-2 shadow-xl">
             <Search size={18} className="text-primary-500" />
-            <span className="text-sm font-semibold text-dark dark:text-white">#1 Ranking</span>
+            <span className="text-sm font-semibold text-white">#1 Ranking</span>
           </div>
         </div>
         <div className="absolute -bottom-6 -left-6 animate-float-slow">
           <div className="card px-4 py-3 flex items-center gap-2 shadow-xl">
             <TrendingUp size={18} className="text-secondary-500" />
-            <span className="text-sm font-semibold text-dark dark:text-white">+320% Traffic</span>
+            <span className="text-sm font-semibold text-white">+320% Traffic</span>
           </div>
         </div>
       </div>
@@ -155,12 +155,12 @@ function HeroDashboard() {
 
 function MiniStat({ icon, label, value, trend, color }: { icon: React.ReactNode; label: string; value: string; trend: string; color: 'primary' | 'secondary' }) {
   return (
-    <div className="rounded-xl bg-gray-50 dark:bg-gray-900/60 p-4">
-      <div className={`inline-flex p-2 rounded-lg mb-2 ${color === 'primary' ? 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-300' : 'bg-secondary-100 dark:bg-secondary-900/40 text-secondary-600 dark:text-secondary-300'}`}>
+    <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-4">
+      <div className={`inline-flex p-2 rounded-lg mb-2 ${color === 'primary' ? 'bg-primary-500/10 text-primary-300 border border-primary-500/20' : 'bg-secondary-500/10 text-secondary-300 border border-secondary-500/20'}`}>
         {icon}
       </div>
-      <p className="text-xs text-gray-500 dark:text-gray-400">{label}</p>
-      <p className="font-heading font-bold text-lg text-dark dark:text-white">{value}</p>
+      <p className="text-xs text-slate-400">{label}</p>
+      <p className="font-heading font-bold text-lg text-white">{value}</p>
       <p className={`text-xs font-semibold ${color === 'primary' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-400'}`}>{trend}</p>
     </div>
   );

@@ -12,7 +12,7 @@ export default function Portfolio() {
   const items = filter === 'All' ? portfolioItems : portfolioItems.filter((p) => p.category === filter);
 
   return (
-    <section id="portfolio" className="section-pad">
+    <section id="portfolio" className="section-pad bg-slate-950">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="section-subtitle mb-3">My Work</p>
@@ -26,7 +26,7 @@ export default function Portfolio() {
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 filter === cat
                   ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-950/40'
+                  : 'bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 hover:text-white'
               }`}
             >
               {cat}
@@ -45,14 +45,14 @@ export default function Portfolio() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-600/0 to-secondary-500/0 group-hover:from-primary-600/5 group-hover:to-secondary-500/5 transition-all" />
                 <div className="relative">
-                  <div className="inline-grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-950/50 dark:to-secondary-950/50 text-primary-600 dark:text-primary-400 mb-4 group-hover:scale-110 transition-transform">
+                  <div className="inline-grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500/10 to-secondary-500/10 text-primary-300 border border-primary-500/20 mb-4 group-hover:scale-110 transition-transform">
                     {Icon ? <Icon size={22} /> : null}
                   </div>
-                  <h3 className="font-heading font-bold text-dark dark:text-white mb-1 flex items-center justify-between">
+                  <h3 className="font-heading font-bold text-white mb-1 flex items-center justify-between">
                     {item.title}
-                    <ArrowUpRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-primary-500 group-hover:rotate-45 transition-all" />
+                    <ArrowUpRight size={16} className="text-slate-500 group-hover:text-primary-400 group-hover:rotate-45 transition-all" />
                   </h3>
-                  <span className="text-xs font-semibold text-primary-600 dark:text-primary-400">{item.category}</span>
+                  <span className="text-xs font-semibold text-primary-400">{item.category}</span>
                 </div>
               </div>
             );

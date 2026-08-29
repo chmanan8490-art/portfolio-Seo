@@ -88,7 +88,7 @@ export default function Skills() {
           <h2 className="section-title">
             SEO <span className="text-blue-600">Expertise</span> &amp; <span className="text-teal-600">Core Tools</span>
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-slate-300">
             A data-driven toolkit honed through extensive audits and conversion-focused campaigns.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function Skills() {
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                 activeTab === tab
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:border-sky-200 hover:text-sky-700'
+                  : 'border border-slate-700 bg-slate-900 text-slate-300 hover:border-sky-400/60 hover:text-sky-300'
               }`}
             >
               {tab}
@@ -117,20 +117,20 @@ export default function Skills() {
             return (
               <div
                 key={`${activeTab}-${tool.title}`}
-                className="group rounded-[24px] border border-slate-200/80 bg-white p-5 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.22)] transition duration-300 hover:-translate-y-1 hover:border-sky-300/70 hover:shadow-[0_25px_50px_-24px_rgba(14,116,144,0.25)]"
+                className="group rounded-[24px] border border-slate-800 bg-slate-900/80 p-5 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.9)] transition duration-300 hover:-translate-y-1 hover:border-sky-400/60 hover:shadow-[0_25px_50px_-24px_rgba(14,116,144,0.25)]"
                 style={{ transitionDelay: `${index * 0.03}s` }}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-700 shadow-inner shadow-slate-200 transition group-hover:bg-sky-50 group-hover:text-sky-700">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800 text-slate-100 shadow-inner shadow-slate-900 transition group-hover:bg-sky-500/10 group-hover:text-sky-300">
                   <Icon size={22} />
                 </div>
-                <p className="mt-4 text-sm font-semibold text-slate-800">{tool.title}</p>
+                <p className="mt-4 text-sm font-semibold text-slate-100">{tool.title}</p>
               </div>
             );
           })}
         </div>
 
-        <section className="mt-16 overflow-hidden rounded-[36px] border border-slate-200/70 bg-white shadow-[0_35px_80px_-40px_rgba(15,23,42,0.15)]">
-          <div className="rounded-[34px] bg-white p-8 sm:p-10 lg:p-12">
+        <section className="mt-16 overflow-hidden rounded-[36px] border border-slate-800 bg-slate-900/80 shadow-[0_35px_80px_-40px_rgba(15,23,42,0.7)]">
+          <div className="rounded-[34px] bg-slate-900 p-8 sm:p-10 lg:p-12">
             <div className="flex items-start gap-10 lg:gap-10">
               <div className="w-full lg:w-[38%] lg:sticky lg:top-[120px] lg:self-start">
                 <div className="space-y-6 text-center lg:text-left">
@@ -138,21 +138,21 @@ export default function Skills() {
                     PREMIUM CONTENT SERVICES
                   </div>
                   <div className="space-y-4">
-                    <h2 className="mx-auto max-w-[520px] text-[2.25rem] font-[800] leading-[1.25] text-slate-900 lg:mx-0">
-                      Writing That Converts <span className="text-blue-600">Visitors Into Clients.</span>
+                    <h2 className="mx-auto max-w-[520px] text-[2.25rem] font-[800] leading-[1.25] text-white lg:mx-0">
+                      Writing That Converts <span className="text-blue-400">Visitors Into Clients.</span>
                     </h2>
-                    <p className="mx-auto max-w-[420px] text-sm leading-7 text-slate-600 lg:mx-0">
+                    <p className="mx-auto max-w-[420px] text-sm leading-7 text-slate-300 lg:mx-0">
                       High-impact writing for SEO pages, blogs, landing pages, and product descriptions with clear messaging, brand-ready tone, and conversion focus.
                     </p>
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                    <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                      <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Conversion</p>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">Copy that motivates action and builds trust fast.</p>
+                    <div className="rounded-[30px] border border-blue-500/20 bg-blue-500/5 p-5 text-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                      <p className="text-xs uppercase tracking-[0.3em] text-blue-300">Conversion</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-300">Copy that motivates action and builds trust fast.</p>
                     </div>
-                    <div className="rounded-[30px] border border-blue-100 bg-blue-50 p-5 text-slate-700 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                      <p className="text-xs uppercase tracking-[0.3em] text-blue-600">Clarity</p>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">Clear messaging that removes friction and boosts confidence.</p>
+                    <div className="rounded-[30px] border border-blue-500/20 bg-blue-500/5 p-5 text-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                      <p className="text-xs uppercase tracking-[0.3em] text-blue-300">Clarity</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-300">Clear messaging that removes friction and boosts confidence.</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
@@ -164,9 +164,9 @@ export default function Skills() {
                       <span className="relative z-10">Book Writing Service</span>
                       <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.25)_25%,rgba(255,255,255,0.08)_50%,transparent_75%)] transition-transform duration-700 ease-out group-hover:translate-x-full" />
                     </a>
-                    <span className="group inline-flex items-center gap-2 rounded-full border border-blue-200 bg-[#eff6ff] px-6 py-3 text-sm font-medium text-blue-700 transition-all duration-300 ease-out hover:bg-[#dbeafe]" style={{ borderRadius: '9999px', whiteSpace: 'nowrap', textTransform: 'capitalize' }}>
-                      <span className="h-2.5 w-2.5 rounded-full bg-teal-500 shadow-[0_0_0_4px_rgba(45,212,191,0.12)] animate-pulse" />
-                      <span className="transition-colors duration-300 ease-out group-hover:text-teal-600">⚡ Fast Turnaround &amp; Polished Quality</span>
+                    <span className="group inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-6 py-3 text-sm font-medium text-blue-200 transition-all duration-300 ease-out hover:bg-blue-500/10" style={{ borderRadius: '9999px', whiteSpace: 'nowrap', textTransform: 'capitalize' }}>
+                      <span className="h-2.5 w-2.5 rounded-full bg-teal-400 shadow-[0_0_0_4px_rgba(45,212,191,0.12)] animate-pulse" />
+                      <span className="transition-colors duration-300 ease-out group-hover:text-teal-300">⚡ Fast Turnaround &amp; Polished Quality</span>
                     </span>
                   </div>
                 </div>
@@ -179,18 +179,18 @@ export default function Skills() {
                   return (
                     <div
                       key={item.title}
-                      className="group relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_10px_25px_rgba(0,0,0,0.05)]"
+                      className="group relative overflow-hidden rounded-[16px] border border-slate-800 bg-slate-950/60 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-400/60 hover:shadow-[0_10px_25px_rgba(14,165,233,0.08)]"
                       style={{ transitionDelay: `${index * 0.03}s` }}
                     >
                       <div className="relative flex items-center gap-3">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-700">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 text-sky-300">
                           <Icon size={19} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-[1.05rem] font-bold leading-snug text-slate-900">{item.title}</p>
+                          <p className="text-[1.05rem] font-bold leading-snug text-white">{item.title}</p>
                         </div>
                       </div>
-                      <p className="mt-3 text-sm leading-5 text-slate-600 font-normal">{item.description}</p>
+                      <p className="mt-3 text-sm leading-5 text-slate-300 font-normal">{item.description}</p>
                       <div className="absolute bottom-4 right-4 opacity-0 transition duration-300 group-hover:opacity-100">
                         <ArrowRight size={18} className="text-sky-500" />
                       </div>
@@ -201,8 +201,8 @@ export default function Skills() {
             </div>
 
             <div className="mt-8 border-t border-slate-200/80 pt-5 text-center">
-              <p className="text-sm text-slate-600">
-                Curious about my process? <a href="#contact" className="font-semibold text-sky-700 transition hover:text-sky-600">Let’s connect.</a>
+              <p className="text-sm text-slate-300">
+                Curious about my process? <a href="#contact" className="font-semibold text-sky-300 transition hover:text-sky-200">Let’s connect.</a>
               </p>
             </div>
           </div>

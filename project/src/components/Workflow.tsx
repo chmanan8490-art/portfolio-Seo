@@ -4,12 +4,12 @@ import { useScrollReveal } from '@/hooks/useScroll';
 export default function Workflow() {
   const { ref, visible } = useScrollReveal();
   return (
-    <section id="process" className="section-pad">
+    <section id="process" className="section-pad bg-slate-950">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="section-subtitle mb-3">How I Work</p>
           <h2 className="section-title">SEO <span className="gradient-text">Workflow</span></h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-slate-300">
             A proven 9-step process that takes your site from invisible to dominant.
           </p>
         </div>
@@ -28,9 +28,9 @@ export default function Workflow() {
                       <span className="grid place-items-center w-10 h-10 rounded-full bg-gradient-to-br from-primary-600 to-secondary-500 text-white font-heading font-bold shrink-0 shadow-lg shadow-primary-600/30">
                         {item.step}
                       </span>
-                      <h3 className="font-heading font-bold text-lg text-dark dark:text-white">{item.title}</h3>
+                      <h3 className="font-heading font-bold text-lg text-white">{item.title}</h3>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+                    <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
                 <div className="hidden md:block" />

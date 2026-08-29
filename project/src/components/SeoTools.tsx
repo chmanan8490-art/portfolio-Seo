@@ -65,37 +65,37 @@ export default function SeoTools() {
   const { ref, visible } = useScrollReveal();
   return (
     <>
-      <section className="relative overflow-hidden py-20 bg-slate-100 text-slate-900">
-        <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full bg-cyan-200/30 blur-3xl" />
-        <div className="pointer-events-none absolute left-0 top-1/3 h-56 w-56 rounded-full bg-blue-200/25 blur-3xl" />
+      <section className="relative overflow-hidden py-20 bg-slate-950 text-slate-100">
+        <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute left-0 top-1/3 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl" />
 
         <div ref={ref} className={`relative container-px reveal ${visible ? 'is-visible' : ''}`}>
           <div className="grid gap-10 lg:grid-cols-[1.4fr_0.9fr] items-center mb-14">
             <div className="max-w-2xl">
-              <p className="section-subtitle mb-3 text-sky-500">SEO Toolkit</p>
+              <p className="section-subtitle mb-3 text-sky-400">SEO Toolkit</p>
               <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl tracking-tight">
                 Essential <span className="gradient-text">SEO Tools</span> for fast growth.
               </h2>
-              <p className="mt-5 text-slate-600 sm:text-lg leading-8 max-w-xl">
+              <p className="mt-5 text-slate-300 sm:text-lg leading-8 max-w-xl">
                 I use proven SEO platforms and analytics tools to improve search visibility, track keywords, and deliver growth-focused results.
               </p>
             </div>
 
-            <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/60">
-              <div className="flex items-center justify-between gap-4 rounded-3xl bg-sky-50 p-5">
+            <div className="rounded-[32px] border border-slate-800 bg-slate-900/80 p-8 shadow-xl shadow-slate-950/60">
+              <div className="flex items-center justify-between gap-4 rounded-3xl bg-sky-500/10 border border-sky-500/20 p-5">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-sky-500">Toolkit</p>
-                  <p className="mt-3 text-4xl font-semibold text-slate-900">14+</p>
+                  <p className="text-sm uppercase tracking-[0.24em] text-sky-400">Toolkit</p>
+                  <p className="mt-3 text-4xl font-semibold text-white">14+</p>
                 </div>
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-500 to-cyan-400 text-xl text-white shadow-lg shadow-sky-500/20">
                   ⚡
                 </div>
               </div>
 
-              <div className="mt-6 space-y-4 text-sm text-slate-600">
-                <p className="rounded-3xl bg-slate-50 p-4">Fast site audits with Search Console, PageSpeed, and Core Web Vitals.</p>
-                <p className="rounded-3xl bg-slate-50 p-4">Keyword strategy using Ahrefs, SEMrush, Trends, and Planner.</p>
-                <p className="rounded-3xl bg-slate-50 p-4">Performance monitoring for traffic, rankings, and content growth.</p>
+              <div className="mt-6 space-y-4 text-sm text-slate-300">
+                <p className="rounded-3xl bg-slate-800/70 p-4 border border-slate-700">Fast site audits with Search Console, PageSpeed, and Core Web Vitals.</p>
+                <p className="rounded-3xl bg-slate-800/70 p-4 border border-slate-700">Keyword strategy using Ahrefs, SEMrush, Trends, and Planner.</p>
+                <p className="rounded-3xl bg-slate-800/70 p-4 border border-slate-700">Performance monitoring for traffic, rankings, and content growth.</p>
               </div>
             </div>
           </div>
@@ -104,19 +104,19 @@ export default function SeoTools() {
             {seoTools.map((tool, i) => (
               <div
                 key={tool}
-                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-6 text-center shadow-lg shadow-slate-200/50 transition duration-300 hover:-translate-y-2 hover:border-sky-300 hover:shadow-sky-200/40"
+                className="group relative overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900/80 p-6 text-center shadow-lg shadow-slate-950/60 transition duration-300 hover:-translate-y-2 hover:border-sky-400/60 hover:shadow-sky-500/20"
                 style={{ transitionDelay: `${i * 0.03}s` }}
               >
-                <div className="absolute -left-4 top-4 h-24 w-24 rounded-full bg-sky-100/75 blur-3xl" />
-                <div className="relative mx-auto mb-5 h-20 w-20 overflow-hidden rounded-full bg-slate-100 shadow-lg shadow-slate-200/40">
+                <div className="absolute -left-4 top-4 h-24 w-24 rounded-full bg-sky-500/10 blur-3xl" />
+                <div className="relative mx-auto mb-5 h-20 w-20 overflow-hidden rounded-full bg-slate-800 shadow-lg shadow-slate-900/50 border border-slate-700">
                   <img
                     src={toolLogos[tool]}
                     alt={tool}
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <p className="relative text-base font-semibold text-slate-900">{tool}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="relative text-base font-semibold text-white">{tool}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
                   {tool} helps power better audits, keyword planning, and SEO performance.
                 </p>
               </div>
@@ -125,14 +125,14 @@ export default function SeoTools() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-100 text-slate-900">
+      <section className="py-20 bg-slate-950 text-slate-100">
         <div className="container-px">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <p className="section-subtitle mb-3 text-primary-600">Content Writing</p>
+            <p className="section-subtitle mb-3 text-primary-400">Content Writing</p>
             <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl tracking-tight">
               Tools for <span className="gradient-text">Powerful Writing</span>
             </h2>
-            <p className="mt-5 text-slate-600 sm:text-lg leading-8 max-w-2xl mx-auto">
+            <p className="mt-5 text-slate-300 sm:text-lg leading-8 max-w-2xl mx-auto">
               These tools help me write clean copy, optimize content for search intent, and keep every message professional and on brand.
             </p>
           </div>
@@ -141,20 +141,20 @@ export default function SeoTools() {
             {contentWritingTools.map((tool, i) => (
               <div
                 key={tool}
-                className="group rounded-[32px] border border-slate-200 bg-white p-6 text-center shadow-lg shadow-slate-200/50 transition duration-300 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-cyan-200/30"
+                className="group rounded-[32px] border border-slate-800 bg-slate-900/80 p-6 text-center shadow-lg shadow-slate-950/60 transition duration-300 hover:-translate-y-2 hover:border-cyan-400/60 hover:shadow-cyan-500/10"
                 style={{ transitionDelay: `${i * 0.03}s` }}
               >
-                <div className="mx-auto mb-5 h-20 w-20 overflow-hidden rounded-full bg-slate-100 shadow-lg shadow-slate-200/40">
+                <div className="mx-auto mb-5 h-20 w-20 overflow-hidden rounded-full bg-slate-800 shadow-lg shadow-slate-900/50 border border-slate-700">
                   <img
                     src={contentWritingToolLogos[tool]}
                     alt={tool}
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-slate-900 mb-3">
+                <h3 className="font-heading text-lg font-semibold text-white mb-3">
                   {tool}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate-600">
+                <p className="text-sm leading-relaxed text-slate-300">
                   A modern writing tool that improves clarity, editorial quality, and SEO-ready content flow.
                 </p>
               </div>

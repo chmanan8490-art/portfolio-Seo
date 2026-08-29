@@ -17,24 +17,24 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="font-heading font-bold text-2xl text-dark dark:text-white mb-2 text-center">Suffyan</h3>
-            <p className="text-primary-600 dark:text-primary-400 font-semibold text-sm mb-4 text-center">SEO Specialist</p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <h3 className="font-heading font-bold text-2xl text-white mb-2 text-center">Suffyan</h3>
+            <p className="text-primary-400 font-semibold text-sm mb-4 text-center">SEO Specialist</p>
+            <p className="text-slate-300 leading-relaxed">
               Passionate about helping businesses improve their online visibility and organic search
               performance through data-driven strategies.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-              <div className="rounded-xl bg-gray-50 dark:bg-gray-900/60 p-3">
+              <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-3">
                 <p className="font-heading font-bold text-2xl gradient-text">5+</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Years Exp.</p>
+                <p className="text-xs text-slate-400">Years Exp.</p>
               </div>
-              <div className="rounded-xl bg-gray-50 dark:bg-gray-900/60 p-3">
+              <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-3">
                 <p className="font-heading font-bold text-2xl gradient-text">120+</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Projects</p>
+                <p className="text-xs text-slate-400">Projects</p>
               </div>
-              <div className="rounded-xl bg-gray-50 dark:bg-gray-900/60 p-3">
+              <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-3">
                 <p className="font-heading font-bold text-2xl gradient-text">98%</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Satisfaction</p>
+                <p className="text-xs text-slate-400">Satisfaction</p>
               </div>
             </div>
           </div>
@@ -45,11 +45,11 @@ export default function About() {
           <h2 className="section-title mb-6 l">
             SEO Specialist building <span className="gradient-text">sustainable organic growth</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+          <p className="text-slate-300 leading-relaxed mb-4">
             Hi, I'm Suffyan, an SEO Specialist passionate about helping businesses improve their
             online visibility and organic search performance.
           </p>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+          <p className="text-slate-300 leading-relaxed mb-6">
             My goal is to create long-term SEO strategies that generate sustainable traffic and
             measurable business growth. I specialize in:
           </p>
@@ -57,7 +57,7 @@ export default function About() {
             {aboutSpecialties.map((s) => (
               <div key={s} className="flex items-center gap-3 group">
                 <CheckCircle2 size={20} className="text-secondary-500 shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-700 dark:text-gray-200 font-medium">{s}</span>
+                <span className="text-slate-200 font-medium">{s}</span>
               </div>
             ))}
           </div>

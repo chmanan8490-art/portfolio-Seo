@@ -30,7 +30,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/85 dark:bg-dark/85 backdrop-blur-lg shadow-md border-b border-gray-100 dark:border-gray-800'
+          ? 'bg-slate-950/85 backdrop-blur-lg shadow-md border-b border-slate-800'
           : 'bg-transparent'
       }`}
     >
@@ -44,7 +44,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
             <span className="absolute inset-0 rounded-3xl border border-white/10" />
             <span className="relative z-10">S</span>
           </span>
-          <span className="font-heading font-bold text-lg text-dark dark:text-white hidden sm:block tracking-wide">
+          <span className="font-heading font-bold text-lg text-white hidden sm:block tracking-wide">
             Suffyan
           </span>
         </a>
@@ -75,7 +75,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
           <button
             onClick={onToggleTheme}
             aria-label="Toggle theme"
-            className="grid place-items-center w-10 h-10 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="grid place-items-center w-10 h-10 rounded-xl border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors"
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -99,7 +99,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-white dark:bg-dark border-t border-gray-100 dark:border-gray-800 shadow-lg">
+        <div className="lg:hidden bg-slate-950 border-t border-slate-800 shadow-lg">
           <ul className="container-px py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>

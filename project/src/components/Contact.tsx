@@ -56,12 +56,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-pad bg-slate-50 text-slate-900">
+    <section id="contact" className="section-pad bg-slate-950 text-slate-100">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="section-subtitle mb-3">Let's Talk</p>
           <h2 className="section-title">Get a <span className="gradient-text">Free SEO Audit</span></h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-slate-300">
             Tell me about your website and goals. I'll send you a free mini-audit with quick wins.
           </p>
         </div>
@@ -80,8 +80,8 @@ export default function Contact() {
                     {Icon ? <Icon size={20} /> : null}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{link.label}</p>
-                    <p className="font-semibold text-sm text-dark dark:text-white truncate">{link.value}</p>
+                    <p className="text-xs text-slate-400">{link.label}</p>
+                    <p className="font-semibold text-sm text-white truncate">{link.value}</p>
                   </div>
                 </a>
               );
@@ -95,14 +95,14 @@ export default function Contact() {
             </div>
             <Field label="Website URL" value={form.website} onChange={(v) => setForm({ ...form, website: v })} placeholder="https://yoursite.com" />
             <div>
-              <label className="block text-sm font-semibold text-dark dark:text-white mb-1.5">Message</label>
+              <label className="block text-sm font-semibold text-white mb-1.5">Message</label>
               <textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 rows={4}
                 required
                 placeholder="Tell me about your SEO goals..."
-                className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 text-dark dark:text-white placeholder-gray-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               />
             </div>
             <button
@@ -126,14 +126,14 @@ export default function Contact() {
 function Field({ label, value, onChange, placeholder, type = 'text', required }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-dark dark:text-white mb-1.5">{label}</label>
+      <label className="block text-sm font-semibold text-white mb-1.5">{label}</label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 text-dark dark:text-white placeholder-gray-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+        className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
       />
     </div>
   );
