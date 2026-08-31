@@ -160,12 +160,12 @@ export default function Services() {
   const activeServices = tabs[activeTab];
 
   return (
-    <section id="services" className="section-pad bg-slate-950 text-slate-100">
+    <section id="services" className="section-pad bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="section-subtitle mb-3">What I Do</p>
           <h2 className="section-title">My <span className="gradient-text">Expertise</span></h2>
-          <p className="mt-4 text-slate-300">
+          <p className="mt-4 text-slate-600 dark:text-slate-300">
             A focused portfolio of SEO, content, and link-building services designed to improve rankings, traffic, and conversions.
           </p>
         </div>
@@ -179,7 +179,7 @@ export default function Services() {
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                 activeTab === tab
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20'
-                  : 'border border-slate-700 bg-slate-900 text-slate-300 hover:border-sky-400/60 hover:text-sky-300'
+                  : 'border border-slate-200 bg-slate-50 text-slate-700 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-sky-400/60 dark:hover:text-sky-300'
               }`}
             >
               {tab}
@@ -200,14 +200,14 @@ export default function Services() {
               >
                 <div className="absolute -right-8 -top-8 w-24 h-24 bg-primary-50 rounded-full group-hover:scale-150 transition-transform duration-500" />
                 <div className="relative">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-primary-400 border border-slate-700 shadow-sm mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 text-primary-600 border border-slate-200 shadow-sm mb-4 group-hover:scale-110 group-hover:shadow-md transition-all dark:bg-slate-900 dark:text-primary-400 dark:border-slate-700">
                     {Icon ? <Icon size={20} /> : null}
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-white mb-2 flex items-center justify-between">
+                  <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2 flex items-center justify-between">
                     {service.title}
                     <ArrowUpRight size={18} className="text-slate-400 group-hover:text-primary-400 group-hover:rotate-45 transition-all" />
                   </h3>
-                  <p className="text-sm leading-relaxed text-slate-300">{service.desc}</p>
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{service.desc}</p>
                 </div>
               </div>
             );

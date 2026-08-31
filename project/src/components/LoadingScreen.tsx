@@ -10,7 +10,7 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] grid place-items-center bg-slate-950 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] grid place-items-center bg-slate-50 transition-opacity duration-500 dark:bg-slate-950 ${
         done ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
@@ -21,9 +21,9 @@ export default function LoadingScreen() {
             <Search size={28} />
           </span>
         </div>
-        <h2 className="font-heading font-bold text-xl text-white mb-1">Suffyan</h2>
-        <p className="text-sm text-slate-400 mb-4">SEO Specialist</p>
-        <div className="w-48 h-1 rounded-full bg-slate-800 overflow-hidden mx-auto">
+        <h2 className="font-heading font-bold text-xl text-slate-900 dark:text-white mb-1">Suffyan</h2>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">SEO Specialist</p>
+        <div className="w-48 h-1 rounded-full bg-slate-200 overflow-hidden mx-auto dark:bg-slate-800">
           <div className="h-full bg-gradient-to-r from-primary-600 to-secondary-500 loader-bar" />
         </div>
       </div>

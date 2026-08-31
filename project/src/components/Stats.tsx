@@ -5,7 +5,7 @@ import { useCountUp, useScrollReveal } from '@/hooks/useScroll';
 export default function Stats() {
   const { ref, visible } = useScrollReveal();
   return (
-    <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-600 dark:from-primary-800 dark:to-primary-700">
+    <section className="py-12 bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-800 dark:to-primary-700">
       <div ref={ref} className="container-px grid grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => {
           const Icon = iconMap[stat.icon];

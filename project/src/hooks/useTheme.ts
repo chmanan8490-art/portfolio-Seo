@@ -5,8 +5,7 @@ export function useTheme() {
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = (stored as 'light' | 'dark' | null) ?? (prefersDark ? 'dark' : 'light');
+    const initial = (stored as 'light' | 'dark' | null) ?? 'light';
     setTheme(initial);
   }, []);
 

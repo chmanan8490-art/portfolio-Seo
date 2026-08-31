@@ -8,7 +8,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="section-pad bg-slate-950 text-slate-100">
+    <section className="section-pad bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <div ref={ref} className={`container-px max-w-3xl mx-auto reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center mb-10">
           <p className="section-subtitle mb-3">Got Questions?</p>
@@ -21,7 +21,7 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? -1 : i)}
                 className="w-full flex items-center justify-between gap-4 p-5 text-left"
               >
-                <span className="font-heading font-semibold text-white">{faq.q}</span>
+                <span className="font-heading font-semibold text-slate-900 dark:text-white">{faq.q}</span>
                 <ChevronDown
                   size={20}
                   className={`shrink-0 text-primary-500 transition-transform ${open === i ? 'rotate-180' : ''}`}
@@ -29,7 +29,7 @@ export default function FAQ() {
               </button>
               <div className={`grid transition-all duration-300 ${open === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                 <div className="overflow-hidden">
-                  <p className="px-5 pb-5 text-slate-300 leading-relaxed">{faq.a}</p>
+                  <p className="px-5 pb-5 text-slate-600 dark:text-slate-300 leading-relaxed">{faq.a}</p>
                 </div>
               </div>
             </div>

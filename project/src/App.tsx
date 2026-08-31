@@ -30,7 +30,7 @@ export default function App() {
       <LoadingScreen />
       <ScrollProgress onBackToTop={backToTop} />
       <Navbar theme={theme} onToggleTheme={toggle} />
-      <main className="bg-slate-950 text-slate-100">
+      <main className="bg-white text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
         <Hero />
         <TrustSection />
         <About />

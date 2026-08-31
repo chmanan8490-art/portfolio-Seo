@@ -12,12 +12,19 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+
+  .dark body {
     @apply bg-slate-950 text-slate-100;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   #root {
-    @apply min-h-screen bg-slate-950 text-slate-100;
+    @apply min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+
+  .dark #root {
+    @apply bg-slate-950 text-slate-100;
   }
 
   h1,
@@ -67,7 +74,11 @@
   }
 
   .card {
-    @apply bg-slate-900/80 rounded-2xl border border-slate-800 shadow-xl shadow-slate-950/30 hover:border-slate-700 hover:shadow-lg hover:shadow-sky-500/10 transition-all duration-300;
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-200 transition-all duration-300;
+  }
+
+  .dark .card {
+    @apply bg-slate-900/80 border-slate-800 shadow-xl shadow-slate-950/30 hover:border-slate-700 hover:shadow-lg hover:shadow-sky-500/10;
   }
 
   .gradient-text {
@@ -75,11 +86,19 @@
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight;
+  }
+
+  .dark .section-title {
+    @apply text-white;
   }
 
   .section-subtitle {
-    @apply text-primary-400 font-semibold text-sm uppercase tracking-widest;
+    @apply text-primary-600 font-semibold text-sm uppercase tracking-widest;
+  }
+
+  .dark .section-subtitle {
+    @apply text-primary-400;
   }
 }
 

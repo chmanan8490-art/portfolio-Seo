@@ -30,7 +30,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/85 backdrop-blur-lg shadow-md border-b border-slate-800'
+          ? 'bg-white/90 backdrop-blur-lg shadow-md border-b border-slate-200 dark:bg-slate-950/85 dark:border-slate-800'
           : 'bg-transparent'
       }`}
     >
@@ -44,7 +44,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
             <span className="absolute inset-0 rounded-3xl border border-white/10" />
             <span className="relative z-10">S</span>
           </span>
-          <span className="font-heading font-bold text-lg text-white hidden sm:block tracking-wide">
+          <span className="font-heading font-bold text-lg text-slate-900 hidden sm:block tracking-wide dark:text-white">
             Suffyan
           </span>
         </a>
@@ -75,7 +75,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
           <button
             onClick={onToggleTheme}
             aria-label="Toggle theme"
-            className="grid place-items-center w-10 h-10 rounded-xl border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors"
+            className="grid place-items-center w-10 h-10 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition-colors dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -99,7 +99,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-slate-950 border-t border-slate-800 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-slate-200 shadow-lg dark:bg-slate-950 dark:border-slate-800">
           <ul className="container-px py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>

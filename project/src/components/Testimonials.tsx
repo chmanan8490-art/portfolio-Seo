@@ -15,7 +15,7 @@ export default function Testimonials() {
   const t = testimonials[idx];
 
   return (
-    <section id="testimonials" className="section-pad bg-slate-950 text-slate-100">
+    <section id="testimonials" className="section-pad bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <div ref={ref} className={`container-px reveal ${visible ? 'is-visible' : ''}`}>
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="section-subtitle mb-3">Client Feedback</p>
@@ -30,19 +30,19 @@ export default function Testimonials() {
                 <Star key={i} size={20} className="fill-accent-400 text-accent-400" />
               ))}
             </div>
-            <p className="text-lg lg:text-xl text-slate-200 leading-relaxed font-medium italic">
+            <p className="text-lg lg:text-xl text-slate-700 dark:text-slate-200 leading-relaxed font-medium italic">
               "{t.text}"
             </p>
             <div className="mt-6">
-              <p className="font-heading font-bold text-white">{t.name}</p>
-              <p className="text-sm text-primary-400">{t.role}</p>
+              <p className="font-heading font-bold text-slate-900 dark:text-white">{t.name}</p>
+              <p className="text-sm text-primary-600 dark:text-primary-400">{t.role}</p>
             </div>
           </div>
 
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={() => setIdx((i) => (i - 1 + testimonials.length) % testimonials.length)}
-              className="grid place-items-center w-10 h-10 rounded-full bg-slate-900 border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-colors"
+              className="grid place-items-center w-10 h-10 rounded-full bg-slate-100 border border-slate-200 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-colors dark:bg-slate-900 dark:border-slate-700"
               aria-label="Previous"
             >
               <ChevronLeft size={18} />
@@ -52,14 +52,14 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => setIdx(i)}
-                  className={`h-2 rounded-full transition-all ${i === idx ? 'w-8 bg-primary-600' : 'w-2 bg-slate-600'}`}
+                  className={`h-2 rounded-full transition-all ${i === idx ? 'w-8 bg-primary-600' : 'w-2 bg-slate-300 dark:bg-slate-600'}`}
                   aria-label={`Go to ${i + 1}`}
                 />
               ))}
             </div>
             <button
               onClick={() => setIdx((i) => (i + 1) % testimonials.length)}
-              className="grid place-items-center w-10 h-10 rounded-full bg-slate-900 border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-colors"
+              className="grid place-items-center w-10 h-10 rounded-full bg-slate-100 border border-slate-200 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-colors dark:bg-slate-900 dark:border-slate-700"
               aria-label="Next"
             >
               <ChevronRight size={18} />

@@ -28,7 +28,7 @@ export default function Blog() {
                 <span className="font-heading font-bold text-3xl gradient-text">{post.category}</span>
               </div>
               <span className="text-xs font-semibold text-primary-600 dark:text-primary-400 mb-2">{post.category}</span>
-              <h3 className="font-heading font-bold text-lg text-white mb-2 group-hover:text-primary-400 transition-colors">
+              <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">
                 {post.title}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4 flex-1">{post.excerpt}</p>
